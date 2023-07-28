@@ -1,5 +1,5 @@
-// const dotenv = require('dotenv')
-// dotenv.config()
+const dotenv = require('dotenv')
+dotenv.config()
 
 class Weather {
     constructor(client, UI) {
@@ -21,7 +21,7 @@ class Weather {
     }
 
     compareWith(city) {
-        this.client.fetchWeatherData(city)
+        return this.client.fetchWeatherData(city)
         .then((cityData) => {
             console.log(cityData)
             console.log(this.weatherData)
