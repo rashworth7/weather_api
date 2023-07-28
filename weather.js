@@ -1,9 +1,10 @@
-const dotenv = require('dotenv')
-dotenv.config()
+// const dotenv = require('dotenv')
+// dotenv.config()
 
 class Weather {
-    constructor(client) {
+    constructor(client, UI) {
         this.client = client
+        this.UI = UI
         this.weatherData = null
     }
 
@@ -15,7 +16,7 @@ class Weather {
     }
 
     getWeatherData() {
-        console.log(this.weatherData)
+        this.UI.displayWeather(this.weatherData)
         return this.weatherData
     }
 
@@ -30,13 +31,13 @@ class Weather {
                 console.log(`${this.weatherData.name} is warmer than ${city}`)
             }
         })
-        
-
     }
 
     getTemperature(data) {
         return data.main.temp
     }
+
+    
 }
 
 // const WeatherClient = require('./weatherClient')
